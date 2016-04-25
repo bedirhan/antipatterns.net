@@ -1,0 +1,70 @@
+﻿<h2>Tree of Directories</h2>
+<div id="jstree">
+    <ul>
+        <li>
+            Accounts
+            <ul>
+                <li>
+                    Bedirhan Urgun
+                    <ul>
+                        <li>CrossRwa</li>
+                        <li>CrossDwa</li>
+                        <li>InterSee</li>
+                    </ul>
+                </li>
+                <li>Ozay Akdora</li>
+                <li>Alp Hısım</li>
+            </ul>
+        </li>
+        <li>
+            Languages
+            <ul>
+                <li>C++</li>
+                <li>Java</li>
+                <li>C#</li>
+            </ul>
+        </li>
+    </ul>
+</div>
+
+<br/>
+
+<div class="row">
+    <div class="col-md-4">
+        <input type="text" id="name" class="form-control" />        
+    </div>
+    <div class="col-md-2">
+        <input type="button" value="Add Node" class="btn btn-primary" onclick="add()" />
+    </div>
+</div>
+
+<br/>
+<br />
+
+<button class="btn" data-clipboard-text="<img src='asd' onerror='alert(1)'/>">
+    Copy Cheat 1
+</button>
+
+<script>
+    $(function () {
+        // vulnerability fixed in https://github.com/vakata/jstree/releases/tag/3.0.3
+        $('#jstree').jstree(
+	    {
+		    'core' : {
+			    // should be enabled for modifications!!!
+			    "check_callback" : true
+		    }
+	    });
+    });
+
+    function add() {
+        var selectedNode = $('#jstree').jstree("get_selected");
+        if (selectedNode.length > 0) {
+            var id = $("#jstree").jstree('create_node', selectedNode, $("#name").val(), 'last');
+        }
+        else {
+            alert('Please select a node first');
+        }
+
+    }
+</script>

@@ -1,0 +1,26 @@
+﻿@model IEnumerable<AntiPatterns.Models.Offer>
+
+<h2>Please control your offers...</h2>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Offer ID</th>
+            <th>Title</th>
+            <th>Total</th>
+            <th>Reference</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (AntiPatterns.Models.Offer offer in Model)
+        {
+            <tr>
+                <td>@offer.ID</td>
+                <td>@offer.Title</td>
+                <td>@offer.Total</td>
+                <td>@offer.Reference</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<button class="btn btn-primary" type="submit">Commit</button>

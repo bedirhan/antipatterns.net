@@ -1,0 +1,30 @@
+﻿<h2>Create New Offer</h2>
+<form action="/IncompleteMediation/Add" method="post">
+    <div class="form-group">
+        <label for="ID">Offer ID</label>
+        <input type="text" class="form-control" disabled="disabled" id="ID" name="ID" />
+    </div>
+    <div class="form-group">
+        <label for="Title">Title</label>
+        <input type="text" class="form-control" disabled="disabled" id="Title" name="Title" />
+    </div>
+    <div class="form-group">
+        <label for="Total">Total</label>
+        <input type="text" class="form-control" disabled="disabled" id="Total" name="Total" />
+    </div>
+    <div class="form-group">
+        <label for="Reference">Reference</label>
+        <input type="text" class="form-control" disabled="disabled" id="Reference" name="Reference" />
+    </div>
+    <button type="submit" class="btn btn-primary" disabled="disabled">Add</button>
+</form>
+<br/>
+
+@if (!String.IsNullOrEmpty(ViewBag.Error))
+{
+    <div class="alert alert-danger" role="alert">@ViewBag.Error</div>
+}
+else
+{
+    <div class="alert alert-success" role="alert">@ViewBag.Result</div>
+}

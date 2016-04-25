@@ -1,0 +1,54 @@
+﻿@{
+    AntiPatterns.Models.User user = (AntiPatterns.Models.User)Session["user"];
+}
+
+
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">SourceFlake</a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li><a href="#">Issues</a></li>
+                @if (user.IsAdmin)
+                {
+                    <li><a href="#">Users</a></li>
+                    <li><a href="#">Permissions</a></li>
+                    <li><a href="#">Management</a></li>
+                }
+                <li><a href="#">Profile</a></li>
+            </ul>            
+        </div>
+    </div>
+</nav>
+
+<h3>Update Profile</h3>
+<br/>
+
+<form action="/ConfirmationBias/Update" method="post">
+    <div class="form-group">
+        <label for="Username">Username</label>
+        <input type="text" class="form-control" id="Username" name="Username"  value="@user.Username"/>
+    </div>
+    <div class="form-group">
+        <label for="FullName">Full Name</label>
+        <input type="text" class="form-control" id="FullName" name="FullName" value="@user.FullName"/>
+    </div>
+    <div class="form-group">
+        <label for="Email">Email</label>
+        <input type="text" class="form-control" id="Email" name="Email" value="@user.Email"/>
+    </div>
+    <div class="form-group">
+        <label for="Bio">Bio</label>
+        <textarea class="form-control" id="Bio" name="Bio">@user.Bio</textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Update</button>
+</form>

@@ -1,0 +1,26 @@
+﻿@model IEnumerable<AntiPatterns.Models.Account>
+
+@{ 
+    AntiPatterns.Models.User user = (AntiPatterns.Models.User)Session["user"];
+}
+<h2>@user.FullName Account Listing</h2>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Account ID</th>
+            <th>Title</th>
+            <th>Details</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(AntiPatterns.Models.Account account in Model)
+        {
+            <tr>
+                <td>@account.ID</td>
+                <td>@account.Title</td>
+                <td>@Html.ActionLink("Details", "Detail" , new { id = account.ID})</td>
+            </tr>
+        }
+    </tbody>
+</table>
+

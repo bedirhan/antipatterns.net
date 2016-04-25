@@ -1,0 +1,27 @@
+﻿@model AntiPatterns.Models.Account
+
+@{
+    AntiPatterns.Models.User user = (AntiPatterns.Models.User)Session["user"];
+}
+
+<h2>@user.FullName @Model.Title Account</h2>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Account ID</th>
+            <th>Title</th>
+            <th>Amount</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>@Model.ID</td>
+            <td>@Model.Title</td>
+            <td>@Model.Amount</td>
+            <td>@Model.Description</td>
+        </tr>
+    </tbody>
+</table>
+
+

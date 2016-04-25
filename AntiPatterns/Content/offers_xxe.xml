@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE offers [
+  <!ENTITY % a "<!ENTITY foo SYSTEM 'file:///C:/Windows/System32/drivers/etc/hosts'>">
+  %a;
+]>
+<offers>
+  <offer>
+    <id>73SDGA</id>
+    <title>&foo;</title>
+    <total>272</total>
+    <reference>HS0282</reference>
+  </offer>
+  <offer>
+    <id>84SDZZ</id>
+    <title>Custom Xbsg Item#3668</title>
+    <total>5</total>
+    <reference>ZD8356</reference>
+  </offer>
+</offers>

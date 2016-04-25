@@ -1,0 +1,53 @@
+﻿<h2>Search Portal</h2>
+<form action="/LooseningBlacklists/Search" method="post">
+    <div class="input-group">
+        <input type="text" name="search" id="search" class="form-control" placeholder="Search for...">
+        <span class="input-group-btn">
+            <button class="btn btn-default" type="submit">Go!</button>
+        </span>
+    </div>
+</form>
+
+@if (!String.IsNullOrEmpty(ViewBag.Search))
+{
+    <h4>
+        You searched for
+        <i style="cursor: pointer;" onclick="var term = '@Html.Raw(ViewBag.Search)'; document.location = '/LooseningBlacklists/Search?search=' + escape(term)">
+            @Html.Raw(ViewBag.Search)
+        </i>
+    </h4>
+    <small>
+        @ViewBag.Result
+    </small>   
+    <script type = "text/javascript">
+        $(document).ready(function() {
+            $.ajax({
+                type: "GET",
+                url: "/Blacklisting/Trend",
+                headers:
+            {
+                'X-Company-Ajax': 'true'
+                },
+                data:
+            {
+            q: "@Html.Raw(ViewBag.Search)"
+                }
+        }).always(function(data) { });
+    });
+    </script>
+}
+<br />
+<br />
+<button class="btn" data-clipboard-text="<script>alert(1)</script>">
+    Copy Cheat 1
+</button>
+<button class="btn" data-clipboard-text="'; alert(1) //">
+    Copy Cheat 2
+</button>
+<button class="btn" data-clipboard-text='"*aler\u0074(1)*"'>
+    Copy Cheat 3
+</button>
+<button class="btn" data-clipboard-text="&amp;#x27&amp;#x3b&amp;#x20&amp;#x61&amp;#x6c&amp;#x65&amp;#x72&amp;#x74&amp;#x28&amp;#x31&amp;#x29&amp;#x3b&amp;#x20&amp;#x2f&amp;#x2f">
+    Copy Cheat 4
+</button> 
+

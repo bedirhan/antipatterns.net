@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Software Security AntiPatterns</title>
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/jstree/themes/default/style.min.css" rel="stylesheet" type="text/css" />
+    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/clipboard.min.js"></script>
+    <script src="~/Scripts/jstree.min.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+        new Clipboard('.btn');
+    });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3" style="font-size:126%;border-right: 1px solid;">
+                <a href="/PardonTheMalintent">Pardon the malintent</a>
+                <br/>
+                <a href="/CopyPasteInsecureCode">Copy-Paste insecure code</a>
+                <br/>
+                <a href="/IncompleteMediation">Incomplete mediation</a>
+                <br />
+                <a href="/Blacklisting">Blacklisting</a>
+                <br />
+                <a href="/LooseningBlacklists">Loosening blacklists</a>
+                <br />
+                <a href="/WideningWhitelists">Widening whitelists</a>
+                <br />
+                <a href="/LackOfWWWKnowledge">Lack of WWW knowledge</a>
+                <br />
+                <a href="/SecureLibraryIgnorance">Secure library ignorance</a>
+                <br />
+                <a href="/MixingCodeAndData">Mixing code and data</a>
+                <br />
+                <a href="/ConfirmationBias">Confirmation bias</a>
+                <br />
+            </div>
+            <div class="col-md-9">
+                @RenderBody()
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+
+                <hr />
+                <footer>
+                    <p>&copy; <a href="/Home">Software Security Anti-Patterns</a> by <a href="http://www.sourceflake.com">SourceFlake</a></p>
+                </footer>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
