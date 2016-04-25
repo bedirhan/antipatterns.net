@@ -1,5 +1,5 @@
 ﻿@{
-    AntiPatterns.Models.User user = (AntiPatterns.Models.User)Session["user"];
+    AntiPatterns.Models.User user = (AntiPatterns.Models.User)Session["cbuser"];
 }
 
 
@@ -30,7 +30,14 @@
     </div>
 </nav>
 
-<h3>Update Profile</h3>
+<div class="row" style="position: relative">
+    <div class="col-md-9">
+        <h2>Update Profile</h2>
+    </div>
+    <div class="col-md-3" style="text-align: right; position: absolute; bottom: 10px; right: 0px;">
+        <a href="https://github.com/bedirhan/antipatterns/blob/master/confirmationbias.md" target="_blank">Reference</a>
+    </div>
+</div>
 <br/>
 
 <form action="/ConfirmationBias/Update" method="post">

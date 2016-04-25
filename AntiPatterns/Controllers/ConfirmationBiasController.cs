@@ -12,9 +12,9 @@ namespace AntiPatterns.Controllers
         protected override void OnActionExecuting(ActionExecutingContext ctx)
         {
             base.OnActionExecuting(ctx);
-            if (ctx.HttpContext.Session["user"] == null)
+            if (ctx.HttpContext.Session["cbuser"] == null)
             {
-                ctx.HttpContext.Session["user"] = new User()
+                ctx.HttpContext.Session["cbuser"] = new User()
                 {
                     ID = 1,
                     Username = "burgun",
@@ -33,7 +33,7 @@ namespace AntiPatterns.Controllers
         [HttpPost]
         public ActionResult Update(User user)
         {
-            Session["user"] = user;
+            Session["cbuser"] = user;
             return View("Index");
         }
     }
