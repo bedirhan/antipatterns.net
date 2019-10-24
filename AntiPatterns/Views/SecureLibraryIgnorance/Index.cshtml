@@ -58,7 +58,8 @@
         // vulnerability fixed in https://github.com/vakata/jstree/releases/tag/3.0.3
         $('#jstree').jstree(
 	    {
-		    'core' : {
+                'core': {
+                'force_text': true, // added at 3.0.3
 			    // should be enabled for modifications!!!
 			    "check_callback" : true
 		    }
@@ -68,7 +69,9 @@
     function add() {
         var selectedNode = $('#jstree').jstree("get_selected");
         if (selectedNode.length > 0) {
-            var id = $("#jstree").jstree('create_node', selectedNode, $("#name").val(), 'last');
+            //var id = $("#jstree").jstree('create_node', selectedNode, $("#name").val(), 'last');
+            var node = { id: 123, text: $("#name").val() };
+            $("#jstree").jstree('create_node', selectedNode, node, 'last');
         }
         else {
             alert('Please select a node first');

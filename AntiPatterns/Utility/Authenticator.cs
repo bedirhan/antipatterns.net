@@ -9,12 +9,21 @@ namespace AntiPatterns.Utility
     {
         public static bool Authenticate(string username, string password)
         {
+            if(username == "bedirhan@sourceflake.com" && password == "11")
+            {
+                return true;
+            }
+
             return false;
         }
 
         public static bool CheckCaptcha(string captcha)
         {
-            return true;
+            if(captcha == "enertioc")
+            {
+                return true;
+            }
+            return false;
         }
     }
 }

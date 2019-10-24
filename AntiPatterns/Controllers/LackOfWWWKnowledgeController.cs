@@ -17,30 +17,44 @@ namespace AntiPatterns.Controllers
         [HttpPost]
         public ActionResult Login(string username, string password, string captcha)
         {
-            if(String.IsNullOrEmpty(username) || String.IsNullOrEmpty(password))
+            if (String.IsNullOrEmpty(username) || String.IsNullOrEmpty(password))
             {
                 return View("Index");
             }
 
-            if(Authenticator.CheckCaptcha(captcha) && Authenticator.Authenticate(username, password))
+            // check a brute-force attack
+            int failedtries = 1;
+            if (Session["failedtries"] != null)
             {
-                Session["failedtries"] = 0;
-                return View("Success");
+                failedtries = (int)Session["failedtries"];
+            }
+            if (failedtries >= 2)
+            {
+                if (Authenticator.CheckCaptcha(captcha))
+                {
+                    if (Authenticator.Authenticate(username, password))
+                    {
+                        Session["failedtries"] = 0;
+                        return View("Success");
+                    }
+                    else
+                    {
+                        ViewBag.ShowCaptcha = true;
+                        ViewBag.Result = "Username or password is wrong, please enter again!";
+                    }
+                }
+                else
+                {
+                    ViewBag.ShowCaptcha = true;
+                    ViewBag.Result = "Please enter correct CAPTCHA!";
+                }
             }
             else
             {
-                // check a brute-force attack
-                int failedtries = 0;
-                if (Session["failedtries"] != null)
+                if (Authenticator.Authenticate(username, password))
                 {
-                    failedtries = (int)Session["failedtries"];
-                }
-
-                if (failedtries >= 3)
-                {
-                    ViewBag.ShowCaptcha = true;
-                    ViewBag.Result = "Too many failed login attempts, please enter CAPTCHA!";
-                    return View("Index");
+                    Session["failedtries"] = 0;
+                    return View("Success");
                 }
                 else
                 {

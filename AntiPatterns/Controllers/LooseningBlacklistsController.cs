@@ -20,6 +20,8 @@ namespace AntiPatterns.Controllers
         {
             if(!String.IsNullOrEmpty(search))
             {
+                // AR-139 Requirement: letting users to search with & character 
+                // that is searching using multiple words
                 if (Regex.IsMatch(search, @"[\'\<\(\&\;]"))
                 {
                     ViewBag.Search = "-";

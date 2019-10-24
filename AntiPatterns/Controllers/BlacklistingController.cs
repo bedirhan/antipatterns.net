@@ -1,4 +1,5 @@
-﻿using AntiPatterns.Utility;
+﻿using AntiPatterns.ActionFilters;
+using AntiPatterns.Utility;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,9 +8,15 @@ using System.Web.Mvc;
 
 namespace AntiPatterns.Controllers
 {
+    [SecurityActionFilter]
     public class BlacklistingController : Controller
     {
         public ActionResult Index()
+        {
+            return View();
+        }
+
+        public ActionResult Error()
         {
             return View();
         }

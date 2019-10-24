@@ -15,7 +15,7 @@ namespace AntiPatterns.Controllers
             return View();
         }
 
-        [HttpPost]
+        [HttpPost]        
         public ActionResult Preview()
         {
             List<Offer> offers = new List<Offer>();

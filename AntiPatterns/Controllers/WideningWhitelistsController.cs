@@ -20,7 +20,11 @@ namespace AntiPatterns.Controllers
         {
             if (!String.IsNullOrEmpty(search))
             {
-                // requirement is to be able search with multiple words with & and #hashtags
+                // AR-342 Requirement: being able to search 
+                // multiple words with & and empty characters
+
+                // AR-572 Fast Track: being able to search 
+                // similar words with # character
                 if (Regex.IsMatch(search, @"^[\w]+$"))
                 {
                     ViewBag.Search = search;

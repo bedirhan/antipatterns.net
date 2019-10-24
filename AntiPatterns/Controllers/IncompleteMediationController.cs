@@ -33,6 +33,7 @@ namespace AntiPatterns.Controllers
             }
             return View();
         }
+
         public ActionResult Add(Offer offer)
         {
             ViewBag.Result = "A new offer is created";
