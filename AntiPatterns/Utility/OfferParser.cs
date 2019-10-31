@@ -17,6 +17,8 @@ namespace AntiPatterns.Utility
 
             // NOTE: .NET 4.6.1 doesn't allow external entities to be expanded by default
 
+            XmlReaderSettings settings = new XmlReaderSettings() { DtdProcessing = DtdProcessing.Parse };
+
             XmlReader xmlReader = XmlReader.Create(input);
             var root = XDocument.Load(xmlReader, LoadOptions.PreserveWhitespace);
 
@@ -35,6 +37,9 @@ namespace AntiPatterns.Utility
 
         public static List<Offer> QueryOffer(string titleCriteria, string xmlPath)
         {
+
+            //titleCriteria = Microsoft.Security.Application.Encoder.XmlEncode(titleCriteria);
+
             string filter = "//offer[starts-with(title,'" + titleCriteria + "')]";
 
             XmlDocument XmlDoc = new XmlDocument();
