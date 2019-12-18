@@ -1,4 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE offers [
+  <!ELEMENT offers (offer+)>
+  <!ELEMENT offer (id,title,total,reference)>
+  <!ELEMENT id (#PCDATA)>
+  <!ELEMENT title (#PCDATA)>
+  <!ELEMENT total (#PCDATA)>
+  <!ELEMENT reference (#PCDATA)>
+]>
 <offers>
   <offer>
     <id>73SDGA</id>

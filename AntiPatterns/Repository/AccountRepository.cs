@@ -14,9 +14,9 @@ namespace AntiPatterns.Repository
             List<User> users = new List<User>();
             users.Add(new User() { ID = 1, Username = "akdora", FullName = "Ozay Akdora" });
             users.Add(new User() { ID = 2, Username = "burgun", FullName = "Bedirhan Urgun" });
-            users.Add(new User() { ID = 2, Username = "dcevik", FullName = "Deniz Cevik" });
-            users.Add(new User() { ID = 2, Username = "ogoker", FullName = "Ozer Goker" });
-            users.Add(new User() { ID = 2, Username = "cdemirel", FullName = "Can Demirel" });
+            users.Add(new User() { ID = 3, Username = "dcevik", FullName = "Deniz Cevik" });
+            users.Add(new User() { ID = 4, Username = "ogoker", FullName = "Ozer Goker" });
+            users.Add(new User() { ID = 5, Username = "cdemirel", FullName = "Can Demirel" });
 
             List<Account> accounts = new List<Account>();
             accounts.Add(new Account() { ID = 1, UserID = 1, Amount = 4522.6, Title = "Primary", Description = "Primary bank account" });
